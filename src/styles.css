@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Lobster Two', sans-serif;
+}
+
+:root{
+    --cor-primaria: #0e6f4c;
+    --cor-secundaria: #54c05a;
+    --cor01: #174c1a;
+    --cor02: #ecdff7;
+    --botao01: #20547e;
+    --botao02: #FFD600;
+    --branco: #ffffff;
+}

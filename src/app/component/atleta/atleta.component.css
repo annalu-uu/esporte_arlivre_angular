@@ -41,13 +41,23 @@ input[type=radio]{
 }
 
 #div-btns{
-    width: 100%;
-    height: 150px;
-    margin: 25px 0px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
 }
+
+#btnAdd, #btnLimpar{
+    width: 130px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 
 button{
     width: 200px;
@@ -66,4 +76,9 @@ button{
 #btnLimpar{
     background-color: var(--botao02);
     margin-left: 20px;
+}
+
+#btnAdd:hover, #btnExcluir:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
 }

@@ -3,8 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Atleta } from '../../models/atleta';
 
-import { AtletaService } from '../../service/atleta-service.service';
-
+import { AtletaServiceService } from '../../service/atleta-service.service';
 
 
 @Component({
@@ -27,7 +26,7 @@ export class AtletaComponent {
   uf = ''
 
   //DECLARAÇÃO DO CONSTRUTOR
-  constructor(private atletaService: AtletaService) { }
+  constructor(private atletaService: AtletaServiceService) { }
 
   //DECLARAÇÃO DE FUNÇÕES
   exibirDados() {

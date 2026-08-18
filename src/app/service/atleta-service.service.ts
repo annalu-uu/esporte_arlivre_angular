@@ -13,16 +13,14 @@ export class AtletaServiceService {
 
   // LISTAR TODOS OS ATLETAS
   listarAtletas(): Observable<Atleta[]> {
-
-    const urlApi = 'https:// 6a835a9ecb486d243403a40e.mockapi.io/api/v1/:ponto final';
-
-    return this.http.get<Atleta[]>(urlApi);
+    const urlApi =`https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`
+    return this.http.get<Atleta[]>(urlApi)
   }
 
   // BUSCAR UM ATLETA PELO ID
   listarAtleta(idAtleta: number): Observable<Atleta> {
 
-    const urlApi = `https:// 6a835a9ecb486d243403a40e.mockapi.io/api/v1/:ponto final/${idAtleta}`;
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`;
 
     return this.http.get<Atleta>(urlApi);
   }
@@ -30,7 +28,7 @@ export class AtletaServiceService {
   // ADICIONAR ATLETA
   adicionarAtleta(atleta: Atleta): Observable<Atleta> {
 
-    const urlApi = 'https:// 6a835a9ecb486d243403a40e.mockapi.io/api/v1/:ponto final';
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta`;
 
     return this.http.post<Atleta>(urlApi, atleta);
   }
@@ -38,7 +36,7 @@ export class AtletaServiceService {
   // REMOVER ATLETA
   removerAtleta(idAtleta: number): Observable<Atleta> {
 
-    const urlApi = `https:// 6a835a9ecb486d243403a40e.mockapi.io/api/v1/:ponto final/${idAtleta}`;
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${idAtleta}`;
 
     return this.http.delete<Atleta>(urlApi);
   }
@@ -46,7 +44,7 @@ export class AtletaServiceService {
   // ALTERAR ATLETA
   alterarAtleta(atleta: Atleta): Observable<Atleta> {
 
-    const urlApi = `https:// 6a835a9ecb486d243403a40e.mockapi.io/api/v1/:ponto final/${atleta.id}`;
+    const urlApi = `https://6a7f6d923183f5fd884b1a61.mockapi.io/esportearlivre/atleta/${atleta.id}`;
 
     return this.http.put<Atleta>(urlApi, atleta);
   }

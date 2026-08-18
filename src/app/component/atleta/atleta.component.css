@@ -78,7 +78,7 @@ button{
     margin-left: 20px;
 }
 
-#btnAdd:hover, #btnExcluir:hover{
+#btnAdd:hover, #btnLimpar:hover{
     transform: scale(1.05);
     opacity: 0.9;
 }

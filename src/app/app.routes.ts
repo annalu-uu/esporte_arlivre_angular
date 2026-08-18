@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { AtletaComponent } from './component/atleta/atleta.component';
 import { CorridaComponent } from './component/corrida/corrida.component';
-
+import { AtletaListaComponent } from './component/atleta/atleta-lista-component/atleta-lista-component.component';
 export const routes: Routes = [
 
     {
@@ -20,8 +20,13 @@ export const routes: Routes = [
         component: AtletaComponent,
     },
     {
-        path: "corridaAtleta",
+        path: "corridaAtleta/id:",
         component: CorridaComponent,
+    },
+    {
+
+        path: "listaAtleta",
+        component: AtletaListaComponent
     }
 
 ];

@@ -1,14 +1,15 @@
 <section id="section-lista-Atleta">
     <h2>Listar Atletas</h2>
 
+    <!-- CHAMANDO O FUNÇÃO listaAtletas -->
     @for(elem of listaAtletas(); track elem.id) {
         <div class="atleta-item">
             <span class="span-dados-atleta">
                 {{elem.id}} - {{ elem.nome }} - {{ elem.cpf }} - {{elem.cidade }} / {{ elem.uf }}
             </span>
             <span class="span-lnk-atletas">
-                <a class="lnk-atleta lnk-alterar" (click)="carregaDadosAtletaForm(elem)">Alterar</a>
-                <a class="lnk-atleta lnk-excluir" (click)="excluir(elem.id)">Excluir</a>
+                <a class="lnk-atleta lnk-alterar" (click)="carregaDadosAtletaForm(elem)">A</a>
+                <a class="lnk-atleta lnk-excluir" (click)="excluir(elem.id)">E</a>
             </span>
         </div>
     }@empty{

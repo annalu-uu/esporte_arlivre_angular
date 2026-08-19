@@ -28,6 +28,10 @@ export const routes: Routes = [
         component: CorridaComponent,
     },
     {
+        path: "corridaAtleta/:id",
+        component: CorridaComponent,
+    },
+    {
 
         path: "listaAtleta",
         component: AtletaListaComponent

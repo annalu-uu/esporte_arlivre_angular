@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AtletaListaComponentComponent } from './atleta-lista-component.component';
+import { AtletaListaComponent } from './atleta-lista-component.component';
 
 describe('AtletaListaComponentComponent', () => {
-  let component: AtletaListaComponentComponent;
-  let fixture: ComponentFixture<AtletaListaComponentComponent>;
+  let component: AtletaListaComponent;
+  let fixture: ComponentFixture<AtletaListaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AtletaListaComponentComponent]
+      imports: [AtletaListaComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AtletaListaComponentComponent);
+    fixture = TestBed.createComponent(AtletaListaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

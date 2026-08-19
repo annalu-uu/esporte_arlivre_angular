@@ -45,12 +45,12 @@ export class AtletaListaComponent {
       this.listaService.removerAtleta(id)
         .subscribe({
           next: (resposta) => {
-            console.log("Excluído com Sucesso!!! ", resposta)
+            console.log("Excluído com Sucesso!!", resposta)
 
             this.listar()
           },
           error: (msgErro) => {
-            console.log("Erro ao listar Atletas ", msgErro)
+            console.log("Erro ao listar Atletas", msgErro)
           }
         })
     }

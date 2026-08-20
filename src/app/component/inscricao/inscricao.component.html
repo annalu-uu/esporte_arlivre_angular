@@ -1,0 +1,45 @@
+<section id="inscricao">
+
+    <h2>Inscrição na Corrida</h2>
+
+    <form id="form-inscricao" (submit)="inscrever()">
+
+        <!-- ATLETA -->
+        <label for="idAtleta">Atleta</label>
+        <select name="idAtleta" id="idAtleta" [(ngModel)]="idAtleta" required>
+        <option [value]="0"> Selecione o atleta </option>
+    
+        @for (atleta of listaAtletas; track atleta.id) {
+    
+            <option [value]="atleta.id"> {{ atleta.nome }}
+            </option>
+    
+        }
+    
+    </select>
+
+
+        <!-- CORRIDA -->
+        <label for="idCorrida">Corrida</label>
+        <select name="idCorrida" id="idCorrida" [(ngModel)]="idCorrida" required>
+
+        <option [value]="0"> Selecione a corrida </option>
+
+         @for (corrida of listaCorridas; track corrida.id) {
+
+        <option [value]="corrida.id"> {{ corrida.descricao }} </option>
+
+    }
+
+    </select>
+
+        <!-- BOTÃO -->
+        <div id="div-btns">
+
+            <button type="submit" id="btnInscrever"> Inscrever </button>
+
+        </div>
+
+    </form>
+
+    </section>

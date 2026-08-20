@@ -1,0 +1,59 @@
+/*SEÇÃO PRINCIPAL DA LISTA*/
+#listar-corridas {
+    width: 1000px;
+    min-height: 600px;
+    margin: 20px auto;
+    padding: 25px;
+    color: var(--cor-primaria);
+    box-sizing: border-box;
+}
+
+/*TÍTULO*/
+#listar-corridas h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--cor01);
+    font-size: 28px;
+}
+
+/*CADA CORRIDA*/
+.corrida {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+}
+
+/*TEXTOS*/
+.corrida p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/*BOTÃO EXCLUIR*/
+.corrida button {
+    width: 130px;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--botao02);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/*BOTÃO INSCREVER*/
+.corrida button:last-of-type {
+    background-color: var(--botao01);
+}
+
+/*EFEITO AO PASSAR O MOUSE*/
+.corrida button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}

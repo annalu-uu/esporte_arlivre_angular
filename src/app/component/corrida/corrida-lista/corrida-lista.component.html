@@ -1,0 +1,32 @@
+<!-- SEÇÃO PRINCIPAL DA LISTA DE CORRIDAS -->
+<section id="listar-corridas">
+
+    <!-- TÍTULO DA PÁGINA -->
+    <h2>Lista de Corridas</h2>
+
+    <!--PERCORRE TODAS AS CORRIDAS QUE ESTÃO DENTRO DO SIGNAL
+        listaCorridas() PEGA O VALOR ATUAL DO SIGNAL
+        corrida REPRESENTA CADA CORRIDA DA LISTA
+        corrida.id É USADO PARA IDENTIFICAR CADA ITEM -->
+    @for (corrida of listaCorridas(); track corrida.id) {
+
+        <!-- DIV QUE REPRESENTA UMA CORRIDA -->
+        <div class="corrida">
+
+            <!-- MOSTRA A DESCRIÇÃO DA CORRIDA -->
+            <p><strong>Descrição:</strong> {{ corrida.descricao }}</p>
+
+            <!-- MOSTRA A DATA DA CORRIDA -->
+            <p><strong>Data:</strong>{{ corrida.dataCorrida }}</p>
+
+            <!-- MOSTRA A DISTÂNCIA DA CORRIDA -->
+            <p><strong>Distância:</strong>{{ corrida.distancia }} Km</p>
+
+            <button type="button" (click)="excluir(corrida.id)"> Excluir </button>
+            <button type="button" (click)="inscrever(corrida.id)"> Inscrever </button>
+
+        </div>
+
+    }
+
+</section>

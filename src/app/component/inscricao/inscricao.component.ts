@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { Inscricao } from '../../models/inscricao';
 import { Atleta } from '../../models/atleta';
 import { Corrida } from '../../models/corrida';
-
 import { InscricaoServiceService } from '../../service/inscricao-service.service';
 import { AtletaServiceService } from '../../service/atleta-service.service';
 import { CorridaServiceService } from '../../service/corrida-service.service';
@@ -18,37 +16,52 @@ import { CorridaServiceService } from '../../service/corrida-service.service';
 })
 export class InscricaoComponent {
 
-  // LISTA DE ATLETAS
-  listaAtletas: Atleta[] = [];
+  //LISTA DE ATLETAS
+  listaAtletas: Atleta[] = []
 
-  // LISTA DE CORRIDAS
-  listaCorridas: Corrida[] = [];
+  //LISTA DE CORRIDAS
+  listaCorridas: Corrida[] = []
 
-  // ID DO ATLETA ESCOLHIDO
-  idAtleta: number = 0;
+  //ID DO ATLETA ESCOLHIDO
+  idAtleta: number = 0
 
-  // ID DA CORRIDA ESCOLHIDA
-  idCorrida: number = 0;
+  //ID DA CORRIDA ESCOLHIDA
+  idCorrida: number = 0
 
-  // CONSTRUTOR
+  //CPF DO ATLETA
+  cpf: string = ''
+
+  //DISTÂNCIA ESCOLHIDA
+  distancia: string = ''
+
+  //TAMANHO DA CAMISETA
+  tamanhoCamiseta: string = ''
+
+  //CATEGORIA / FAIXA ETÁRIA
+  categoria: string = ''
+
+  //VERIFICA SE ACEITOU OS TERMOS
+  aceitouTermos: boolean = false
+
+ 
   constructor(
     private inscricaoService: InscricaoServiceService,
     private atletaService: AtletaServiceService,
     private corridaService: CorridaServiceService
   ) {}
 
-  // EXECUTA QUANDO O COMPONENTE É CARREGADO
+  //EXECUTA QUANDO O COMPONENTE É CARREGADO
   ngOnInit() {
 
-    // BUSCA OS ATLETAS
-    this.listarAtletas();
+    //BUSCA OS ATLETAS
+    this.listarAtletas()
 
-    // BUSCA AS CORRIDAS
-    this.listarCorridas();
+    //BUSCA AS CORRIDAS
+    this.listarCorridas()
 
   }
 
-  // BUSCA OS ATLETAS NA API
+  //BUSCA OS ATLETAS NA API
   listarAtletas() {
 
     this.atletaService.listarAtletas()
@@ -56,21 +69,24 @@ export class InscricaoComponent {
 
         next: (dadosAtletas) => {
 
-          this.listaAtletas = dadosAtletas;
+          this.listaAtletas = dadosAtletas
 
         },
 
         error: (msgErro) => {
 
-          console.log('ERRO AO LISTAR ATLETAS:', msgErro);
+          console.log(
+            'ERRO AO LISTAR ATLETAS:',
+            msgErro
+          )
 
         }
 
-      });
+      })
 
   }
 
-  // BUSCA AS CORRIDAS NA API
+  //BUSCA AS CORRIDAS NA API
   listarCorridas() {
 
     this.corridaService.listarCorridas()
@@ -78,58 +94,81 @@ export class InscricaoComponent {
 
         next: (dadosCorridas) => {
 
-          this.listaCorridas = dadosCorridas;
+          this.listaCorridas = dadosCorridas
 
         },
 
         error: (msgErro) => {
 
-          console.log('ERRO AO LISTAR CORRIDAS:', msgErro);
+          console.log(
+            'ERRO AO LISTAR CORRIDAS:',
+            msgErro
+          )
 
         }
 
-      });
+      })
 
   }
 
-  // REALIZA A INSCRIÇÃO
+  //REALIZA A INSCRIÇÃO
   inscrever() {
 
-    const inscricao = new Inscricao();
+    //CRIA UM NOVO OBJETO DE INSCRIÇÃO
+    const inscricao = new Inscricao()
 
-    // COLOCA O ID DO ATLETA
-    inscricao.idAtleta = this.idAtleta;
+    //COLOCA O ID DO ATLETA
+    inscricao.idAtleta = this.idAtleta
 
-    // COLOCA O ID DA CORRIDA
-    inscricao.idCorrida = this.idCorrida;
+    //COLOCA O ID DA CORRIDA
+    inscricao.idCorrida = this.idCorrida
 
-    // ENVIA PARA A API
+    //COLOCA O CPF
+    inscricao.cpf = this.cpf
+
+    //COLOCA A DISTÂNCIA
+    inscricao.distancia = this.distancia
+
+    //COLOCA O TAMANHO DA CAMISETA
+    inscricao.tamanhoCamiseta = this.tamanhoCamiseta
+
+    //COLOCA A CATEGORIA
+    inscricao.categoria = this.categoria
+
+    //COLOCA O VALOR DA INSCRIÇÃO
+   inscricao.valor = 89.90
+
+    //VERIFICA SE ACEITOU OS TERMOS
+    inscricao.aceitouTermos = this.aceitouTermos
+
+    //ENVIA A INSCRIÇÃO PARA A API
     this.inscricaoService.adicionarInscricao(inscricao)
       .subscribe({
 
+        //SE A INSCRIÇÃO FOR REALIZADA
         next: (resposta) => {
 
-          console.log(
-            'INSCRIÇÃO REALIZADA COM SUCESSO!',
-            resposta
-          );
+          console.log('INSCRIÇÃO REALIZADA COM SUCESSO!',resposta)
 
-          // LIMPA OS CAMPOS
-          this.idAtleta = 0;
-          this.idCorrida = 0;
+          //LIMPA OS CAMPOS
+          this.idAtleta = 0
+          this.idCorrida = 0
+          this.cpf = ''
+          this.distancia = ''
+          this.tamanhoCamiseta = ''
+          this.categoria = ''
+          this.aceitouTermos = false
 
         },
 
+        //SE OCORRER ALGUM ERRO
         error: (msgErro) => {
 
-          console.log(
-            'ERRO AO REALIZAR INSCRIÇÃO:',
-            msgErro
-          );
+          console.log('ERRO AO REALIZAR INSCRIÇÃO:', msgErro)
 
         }
 
-      });
+      })
 
   }
 

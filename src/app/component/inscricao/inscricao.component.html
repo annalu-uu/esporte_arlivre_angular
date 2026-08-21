@@ -5,41 +5,131 @@
     <form id="form-inscricao" (submit)="inscrever()">
 
         <!-- ATLETA -->
-        <label for="idAtleta">Atleta</label>
-        <select name="idAtleta" id="idAtleta" [(ngModel)]="idAtleta" required>
-        <option [value]="0"> Selecione o atleta </option>
-    
-        @for (atleta of listaAtletas; track atleta.id) {
-    
-            <option [value]="atleta.id"> {{ atleta.nome }}
-            </option>
-    
-        }
-    
-    </select>
+        <div class="campo">
 
+            <label for="idAtleta"> Atleta Cadastrado </label>
 
-        <!-- CORRIDA -->
-        <label for="idCorrida">Corrida</label>
-        <select name="idCorrida" id="idCorrida" [(ngModel)]="idCorrida" required>
+            <select name="idAtleta" id="idAtleta" [(ngModel)]="idAtleta"
+            required>
 
-        <option [value]="0"> Selecione a corrida </option>
+                <option [value]="0"> Selecione o atleta </option>
 
-         @for (corrida of listaCorridas; track corrida.id) {
+                @for (atleta of listaAtletas; track atleta.id) {
 
-        <option [value]="corrida.id"> {{ corrida.descricao }} </option>
+                 <option [value]="atleta.id"> {{ atleta.nome }} </option>
 
-    }
+                }
 
-    </select>
-
-        <!-- BOTÃO -->
-        <div id="div-btns">
-
-            <button type="submit" id="btnInscrever"> Inscrever </button>
+            </select>
 
         </div>
 
+
+        <!-- CPF -->
+        <div class="campo">
+
+            <label for="cpf"> Ou Buscar por CPF </label>
+
+            <input type="text" name="cpf" id="cpf" [(ngModel)]="cpf"
+            placeholder="000.000.000-00">
+
+        </div>
+
+
+        <!-- CORRIDA -->
+        <div class="campo">
+
+            <label for="idCorrida"> Corrida Escolhida </label>
+
+            <select name="idCorrida" id="idCorrida" [(ngModel)]="idCorrida"
+            required>
+
+
+                <option [value]="0"> Selecione a corrida </option>
+
+                @for (corrida of listaCorridas; track corrida.id) {
+
+                    <option [value]="corrida.id"> {{ corrida.descricao }} </option>
+
+                }
+
+            </select>
+
+        </div>
+
+
+        <!-- DISTÂNCIA -->
+        <div class="campo">
+
+            <label> Distância da Prova </label>
+
+            <label class="radio">
+                <input type="radio" name="distancia" [(ngModel)]="distancia" value="5">5km
+            </label>
+
+            <label class="radio">
+                <input type="radio" name="distancia" [(ngModel)]="distancia" value="10"> 10km
+            </label>
+
+            <label class="radio">
+                <input type="radio" name="distancia" [(ngModel)]="distancia" value="25"> 25km
+            </label>
+
+        </div>
+
+
+        <!-- TAMANHO DA CAMISETA -->
+        <div class="campo">
+
+            <label for="tamanhoCamiseta"> Tamanho da Camiseta (Kit) </label>
+
+            <select name="tamanhoCamiseta" id="tamanhoCamiseta" [(ngModel)]="tamanhoCamiseta" required>
+
+                <option value=""> Selecione </option>
+                <option value="P">P</option>
+                <option value="M">M</option>
+                <option value="G">G</option>
+                <option value="GG">GG</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CATEGORIA -->
+        <div class="campo">
+
+            <label for="categoria"> Categoria / Faixa Etária </label>
+
+            <input type="text" name="categoria" id="categoria" [(ngModel)]="categoria" placeholder=
+            "Ex: Geral Masculino/30-39 anos">
+
+        </div>
+
+
+        <!-- VALOR -->
+        <div id="valor">
+
+            <strong>Valor da Inscrição:</strong>
+
+            <span> R$ 89,90</span>
+
+        </div>
+
+
+        <!-- TERMOS -->
+        <div id="termos">
+
+            <input type="checkbox" name="aceitouTermos" [(ngModel)]="aceitouTermos" id="aceitouTermos">
+            <label for="aceitouTermos"> Li e aceito os termos do regulamento da prova
+             e declaração de saúde. </label>
+
+        </div>
+
+
+        <!-- BOTÃO -->
+        <button type="submit" id="btnInscrever"> Finalizar e Ir para Pagamento </button>
+
     </form>
 
-    </section>
+</section>

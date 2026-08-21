@@ -29,7 +29,7 @@ export class AtletaListaComponent {
       .subscribe({
         next: (dadosAtletas) => {
          
-          this.listaAtletas.set([...dadosAtletas].sort((a, b) => a.nome.localeCompare(b.nome)))
+          this.listaAtletas.set([...dadosAtletas].sort((a, b) => (a.nome || '').localeCompare(b.nome || '')))
 
           console.table(this.listaAtletas())
         },
